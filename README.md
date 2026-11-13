@@ -92,5 +92,3 @@ Debería recibir una respuesta JSON similar a:
 - **NodePort** permite acceso externo sin necesidad de Ingress.
 - Comentarios extensivos en español en todos los archivos YAML.
 
----
-*Proyecto preparado para su evaluación. ¡Éxitos!*
