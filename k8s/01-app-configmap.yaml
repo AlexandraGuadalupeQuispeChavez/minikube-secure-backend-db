@@ -1,0 +1,18 @@
+# ConfigMap con variables no sensibles para la aplicación backend
+# Este ConfigMap se usa para pasar la configuración al pod mediante envFrom.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: practica-s08
+  labels:
+    app: backend
+    env: config
+# Variables de entorno que NO son secretas.
+# DB_HOST indica el nombre del Service de MongoDB dentro del clúster.
+# DB_NAME es el nombre de la base de datos que usará la aplicación.
+# APP_PORT es el puerto en el que escucha la API dentro del pod.
+data:
+  DB_HOST: "mongo-service"
+  DB_NAME: "practica_s08_db"
+  APP_PORT: "3000"

@@ -1,0 +1,15 @@
+{
+  "name": "backend-s08",
+  "version": "1.0.0",
+  "description": "API ligera para práctica de exposición de servicios en Minikube",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.0"
+  }
+}

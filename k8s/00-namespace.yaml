@@ -1,0 +1,8 @@
+# Namespace para la práctica
+# Define un Namespace aislado llamado "practica-s08" donde se desplegarán todos los recursos.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: practica-s08
+  labels:
+    name: practica-s08

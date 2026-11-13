@@ -1,0 +1,20 @@
+# General ignores for Node.js and OS artefacts
+# Dependencias locales
+node_modules/
+# Logs de npm / yarn
+npm-debug.log*
+yarn-error.log*
+# Archivos temporales del editor
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+# Configuración local de IDE
+.vscode/
+.idea/
+# Salidas de compilación / empaquetado
+dist/
+build/
+# Docker artefacts (si se generan)
+*.tar
+*.dockerignore
