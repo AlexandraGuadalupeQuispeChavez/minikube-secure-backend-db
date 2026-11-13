@@ -3,26 +3,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const os = require('os');
 
-// Variables de entorno (solo las definidas explícitamente)
-const {
-  DB_HOST,
-  DB_NAME,
-  DB_USER,
-  DB_PASS,
-  APP_PORT,
-} = process.env;
+// Obtener variables de entorno limpiando posibles espacios invisibles
+const DB_HOST = process.env.DB_HOST ? process.env.DB_HOST.trim() : 'localhost';
+const DB_NAME = process.env.DB_NAME ? process.env.DB_NAME.trim() : 'test';
+const DB_USER = process.env.DB_USER ? process.env.DB_USER.trim() : '';
+const DB_PASS = process.env.DB_PASS ? process.env.DB_PASS.trim() : '';
+const APP_PORT = process.env.APP_PORT ? process.env.APP_PORT.trim() : '3000';
 
 // Construir la URI de conexión a MongoDB
 const mongoUri = `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:27017/${DB_NAME}?authSource=admin`;
 
-// Estado de la conexión (por defecto "Error")
 let dbConnected = false;
 
-// Intentar conectar a MongoDB
+// Conectar a MongoDB sin opciones obsoletas
 mongoose
-  .connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoUri)
   .then(() => {
-    console.log('✅ Conexión a MongoDB establecida');
+    console.log('✅ Conexión a MongoDB establecida correctamente');
     dbConnected = true;
   })
   .catch((err) => {
@@ -44,7 +41,7 @@ app.get('/', (req, res) => {
   });
 });
 
-const port = APP_PORT || 3000;
+const port = Number(APP_PORT) || 3000;
 app.listen(port, () => {
   console.log(`🚀 Servidor escuchando en puerto ${port}`);
 });
